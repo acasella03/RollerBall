@@ -981,6 +981,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1226051129}
+  moveSpeed: 10
+  turnSpeed: 50
 --- !u!1 &1103330615
 GameObject:
   m_ObjectHideFlags: 0
