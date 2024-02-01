@@ -80,6 +80,8 @@ También he agregado una limitación a la velocidad del jugador para evitar que 
 
 ---------------------------
 ## Tercer Cambio: La cámara se mueve independientemente del Player, ¿como sería que la cámara se moviera alrededor de la mesa?
+
+Quiero que la cámara se mueva alrededor del jugador y cambie la perspectiva al presionar teclas específicas, modifico el script **CameraController**, quedaría así:
 ```
 using System.Collections;
 using System.Collections.Generic;
