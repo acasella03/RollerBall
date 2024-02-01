@@ -6,7 +6,10 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     // Velocidad a la que se mueve el jugador.
-    public float speed = 0;
+    public float speed = 5.0f;
+
+    //Fuerza del salto
+    public float jumpForce = 8.0f;
 
     // Rigidbody del jugador.
     private Rigidbody rb;
@@ -30,7 +33,7 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Hola, soy un mensaje de debug en OnFire");
 
         //aplico fuerza al rigidbody
-        rb.AddForce(Vector3.up * 5.0f, ForceMode.Impulse);
+        rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
     }
 
     // Esta función se llama cuando se detecta una entrada de movimiento.
@@ -58,6 +61,9 @@ public class PlayerController : MonoBehaviour
 
         // Aplicar fuerza al Rigidbody para mover al jugador.
         rb.AddForce(movement * speed);
+
+        //Limitar la velocidad del jugador para que no sea demasiado rápido.
+        rb.velocity = Vector3.ClampMagnitude(rb.velocity,speed);
     }
 
     void OnTriggerEnter(Collider other)
