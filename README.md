@@ -69,3 +69,11 @@ public class PlayerController : MonoBehaviour
 En este código, he agregado una nueva variable jumpForce que controla la fuerza del salto. 
 Al llamar a **rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);** en el método **OnFire()**, el jugador aplicará una fuerza más fuerte hacia arriba al saltar.<br> 
 También he agregado una limitación a la velocidad del jugador para evitar que se vuelva demasiado rápido.
+
+---------------------------
+## Segundo Cambio: La cámara haga un seguimiento diferente al Player, como sería en primera persona?
+
+1. Selecciono la cámara principal.
+2. Establezco el valor de la posición Y en 1, para que esté justo arriba del Jugador. 
+3. Establezco el valor de rotación X, Y, Z en 0.
+4. Obtengo una vista previa del ángulo de la cámara en la vista Juego.
