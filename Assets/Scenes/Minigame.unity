@@ -284,6 +284,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PickUp (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6125980903334583655, guid: 25288c7c44be6ecc380c6c82561b4aa1, type: 3}
+      propertyPath: m_TagString
+      value: PickUp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -693,6 +697,10 @@ PrefabInstance:
     - target: {fileID: 6125980903334583655, guid: 25288c7c44be6ecc380c6c82561b4aa1, type: 3}
       propertyPath: m_Name
       value: PickUp (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6125980903334583655, guid: 25288c7c44be6ecc380c6c82561b4aa1, type: 3}
+      propertyPath: m_TagString
+      value: PickUp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1323,6 +1331,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PickUp (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 6125980903334583655, guid: 25288c7c44be6ecc380c6c82561b4aa1, type: 3}
+      propertyPath: m_TagString
+      value: PickUp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1560,6 +1572,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PickUp (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6125980903334583655, guid: 25288c7c44be6ecc380c6c82561b4aa1, type: 3}
+      propertyPath: m_TagString
+      value: PickUp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1624,6 +1640,10 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 6dff264a034c64f46b07d9e14ebb682f, type: 2}
     - target: {fileID: 6125980903334583655, guid: 25288c7c44be6ecc380c6c82561b4aa1, type: 3}
       propertyPath: m_Name
+      value: PickUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6125980903334583655, guid: 25288c7c44be6ecc380c6c82561b4aa1, type: 3}
+      propertyPath: m_TagString
       value: PickUp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
