@@ -23,13 +23,13 @@ public class CameraController : MonoBehaviour
     void Update ()
     {
         //Esto lo comentaría cuando el desplazamiento ya se cumpla con el método LateUpdate
-        if(Input.GetKey(KeyCode.W))
-            transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
+        //if(Input.GetKey(KeyCode.W))
+        //    transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
 
-        if(Input.GetKey(KeyCode.S))
-            transform.Translate(-Vector3.forward * moveSpeed * Time.deltaTime);
+        //if(Input.GetKey(KeyCode.S))
+        //    transform.Translate(-Vector3.forward * moveSpeed * Time.deltaTime);
         
-        /* Esto lo comento porque no quiero rotar en un punto sino alrededor
+        /* Esto es para rotar en un mismo punto del jugador y no a su alrededor
         if(Input.GetKey(KeyCode.A))
             transform.Rotate(Vector3.up, -turnSpeed * Time.deltaTime);
         
@@ -37,12 +37,12 @@ public class CameraController : MonoBehaviour
             transform.Rotate(Vector3.up, turnSpeed * Time.deltaTime);
         */
 
-        //Rotar alredor
-        if (Input.GetKey(KeyCode.A))
-            transform.RotateAround(player.transform.position, Vector3.up, -turnSpeed * Time.deltaTime);
+        //Rotar alredor del jugador
+        //if (Input.GetKey(KeyCode.A))
+        //    transform.RotateAround(player.transform.position, Vector3.up, -turnSpeed * Time.deltaTime);
 
-        if (Input.GetKey(KeyCode.D))
-            transform.RotateAround(player.transform.position, Vector3.up, turnSpeed * Time.deltaTime);
+        //if (Input.GetKey(KeyCode.D))
+        //    transform.RotateAround(player.transform.position, Vector3.up, turnSpeed * Time.deltaTime);
     }
 
 
@@ -50,7 +50,7 @@ public class CameraController : MonoBehaviour
     void LateUpdate()
     {
         // Mantener el mismo desplazamiento entre la cámara y el jugador a lo largo del juego.
-        //transform.position = player.transform.position + offset;
+        transform.position = player.transform.position + offset;
     }
 }
 
