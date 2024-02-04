@@ -51,6 +51,7 @@ public class CameraController : MonoBehaviour
     {
         // Mantener el mismo desplazamiento entre la cámara y el jugador a lo largo del juego.
         transform.position = player.transform.position + offset;
+
     }
 }
 
