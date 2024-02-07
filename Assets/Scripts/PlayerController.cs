@@ -2,29 +2,48 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
-    // Velocidad a la que se mueve el jugador.
-    public float speed = 5.0f;
-
     //Fuerza del salto
     public float jumpForce = 8.0f;
 
     // Rigidbody del jugador.
     private Rigidbody rb;
 
+    // Contador de puntos
+    private int count;
+
     // Movimiento a lo largo de los ejes X e Y.
     private float movementX;
     private float movementY;
 
+    // Velocidad a la que se mueve el jugador.
+    public float speed = 5.0f;
+
+    // UI componente de texto para contar los "PickUp" recopilados
+    public TextMeshProUGUI countText;
+
+    // UI para mostrar texto de victoria
+    public GameObject winTextObject;
+
     // Start se llama antes de la primera actualización de fotograma.
     void Start()
     {
+        // Inicialización del contador de puntos
+        count = 0;
+
         // Obtener y almacenar el componente Rigidbody adjunto al jugador.
         rb = GetComponent<Rigidbody>();
 
         Debug.Log("Hola, soy un mensaje de debug en el Start");
+
+        // Actualizar la pantalla de conteo
+        SetCountText();
+
+        // Desactivar el mensaje de victoria al inicializar el juego
+        winTextObject.SetActive(false);
     }
 
     // Dar un salto con la tecla Fire(boton izquierdo del mouse)
@@ -49,7 +68,17 @@ public class PlayerController : MonoBehaviour
         movementY = movementVector.y;
     }
 
+    // Función para actualizar el recuento mostrado de los "PickUp" colisionados
+    void SetCountText(){
+        // Actualizar el texto del recuento con el recuento actual
+        countText.text = "Count: " + count.ToString();
 
+        // Comprobar si el recuento ha alcanzado la cantidad para la victoria
+        if (count >= 8)
+       {   // Mostrar el texto de victoria
+           winTextObject.SetActive(true);
+       }
+    }
 
     // FixedUpdate is called once per fixed frame-rate frame.
     private void FixedUpdate()
@@ -68,9 +97,15 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        // Comprueba si el objeto con el que chocó el jugador tiene la etiqueta "PickUp"
         if (other.gameObject.CompareTag("PickUp"))
         {
+            // Desactivar el objeto colisionado (haciéndolo desaparecer)
             other.gameObject.SetActive(false);
+            // Incrementar el recuento de objetos "PickUp" recopilados
+            count = count + 1;
+            // Actualizar la pantalla de conteo
+            SetCountText();
         }
 
     }
