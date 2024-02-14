@@ -74,7 +74,7 @@ public class PlayerController : MonoBehaviour
         countText.text = "Count: " + count.ToString();
 
         // Comprobar si el recuento ha alcanzado la cantidad para la victoria
-        if (count >= 8)
+        if (count >= 24)
        {   // Mostrar el texto de victoria
            winTextObject.SetActive(true);
            GameIsOver();
@@ -113,6 +113,6 @@ public class PlayerController : MonoBehaviour
 
     public bool GameIsOver()
     {
-        return count >= 8; // O cualquier otra condición que indique que el juego ha terminado
+        return count >= 24; // O cualquier otra condición que indique que el juego ha terminado
     }
 }
