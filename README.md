@@ -141,3 +141,56 @@ public class CameraController : MonoBehaviour
 ```
 En este script, he agregado funciones al presionar W y S, la cámara se moverá hacia adelante y hacia atrás. Al presionar A y D, la cámara rotará alrededor del jugador.<br>
 Comento `transform.position = player.transform.position + offset;` en el método **LateUpdate()** para poder observar el movimiento correspondiente.
+
+---------------------
+## Ampliación del juego (Obstáculos y Enemigo)
+1. Creo varios obstaculos de distintas formas y tamaños y para los obstáculos que se mueven he realizado un scrip llamado **ObstacleRotator.cs** que se encarga de su rotación.
+```
+public class ObstacleRotator : MonoBehaviour
+{
+    // Update is called once per frame
+    void Update()
+    {
+        transform.Rotate(new Vector3(0, 60, 0) * Time.deltaTime);
+    }
+}
+```
+2. Creo más objetos colectables **"PickUp"** para completar la ampliación.
+3. Creo un objeto enemigo y ajusto sus características como el color, tamaño, etc.
+4. Realizo el scrip **Enemy.cs** y queda de la siguiente manera:
+```
+public class Enemy : MonoBehaviour
+{
+    private NavMeshAgent pathfinder;
+    private Transform target;
+    private PlayerController playerController;
+
+    // Start is called before the first frame update
+    void Start()
+    {  
+        pathfinder = GetComponent<NavMeshAgent>();
+        target = GameObject.Find("Player").transform;
+        playerController = target.GetComponent<PlayerController>();
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        // Verificar si el jugador ha ganado
+        if (!playerController.GameIsOver())
+        {
+            pathfinder.SetDestination(target.position);
+        }
+        else
+        {
+            // Si el jugador ha ganado, dejar de seguir
+            pathfinder.SetDestination(transform.position);
+        }
+    }
+}
+```
+5. Ajusto los objetos que no serán transitables por el enemigo.
+
+## Muestra del juego
+![Video](RollerBall.gif)
