@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641305, b: 0.57481575, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657856, g: 0.49641263, b: 0.57481515, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2883,6 +2883,7 @@ GameObject:
   - component: {fileID: 1226051134}
   - component: {fileID: 1226051135}
   - component: {fileID: 1226051136}
+  - component: {fileID: 1226051137}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -3049,6 +3050,27 @@ MonoBehaviour:
   speed: 10
   countText: {fileID: 575171967}
   winTextObject: {fileID: 492846784}
+--- !u!95 &1226051137
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1226051129}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 52d408f5acf80931a9ecfa254d7814eb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1248406587
 PrefabInstance:
   m_ObjectHideFlags: 0
