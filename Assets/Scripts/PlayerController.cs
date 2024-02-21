@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("Hola, soy un mensaje de debug en OnFire");
 
-        //aplico fuerza al rigidbody
+        //aplico fuerza al rigidbody para saltar
         rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
     }
 
@@ -84,6 +84,10 @@ public class PlayerController : MonoBehaviour
     // FixedUpdate is called once per fixed frame-rate frame.
     private void FixedUpdate()
     {
+        // Dar un salto con la tecla spacio
+        if(Input.GetKeyDown(KeyCode.Space)){
+            OnFire();
+        }
         // Crear un vector de movimiento 3D utilizando las entradas X e Y.
         Vector3 movement = new Vector3(movementX, 0.0f, movementY);
 
