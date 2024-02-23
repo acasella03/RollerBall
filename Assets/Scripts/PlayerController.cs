@@ -28,6 +28,9 @@ public class PlayerController : MonoBehaviour
     // UI para mostrar texto de victoria
     public GameObject winTextObject;
 
+    // Añadir una referencia al Animator
+    private Animator animator;
+
     // Start se llama antes de la primera actualización de fotograma.
     void Start()
     {
@@ -37,6 +40,9 @@ public class PlayerController : MonoBehaviour
         // Obtener y almacenar el componente Rigidbody adjunto al jugador.
         rb = GetComponent<Rigidbody>();
 
+        // Obtener el componente Animator
+        animator = GetComponent<Animator>();
+
         Debug.Log("Hola, soy un mensaje de debug en el Start");
 
         // Actualizar la pantalla de conteo
@@ -44,6 +50,7 @@ public class PlayerController : MonoBehaviour
 
         // Desactivar el mensaje de victoria al inicializar el juego
         winTextObject.SetActive(false);
+
     }
 
     // Dar un salto con la tecla Fire(boton izquierdo del mouse)
@@ -53,6 +60,13 @@ public class PlayerController : MonoBehaviour
 
         //aplico fuerza al rigidbody para saltar
         rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+
+        // Activar el parámetro "saltar" en el Animator
+        if (animator != null)
+        {
+            animator.SetBool("saltar", true);
+        }
+
     }
 
     // Esta función se llama cuando se detecta una entrada de movimiento.
@@ -66,6 +80,16 @@ public class PlayerController : MonoBehaviour
         movementX = movementVector.x;
         Debug.Log("Y");
         movementY = movementVector.y;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        // Dar un salto con la tecla espacio
+        if (Input.GetButtonDown("Jump"))
+        {
+            OnFire();
+        }
     }
 
     // Función para actualizar el recuento mostrado de los "PickUp" colisionados
